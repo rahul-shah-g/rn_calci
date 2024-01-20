@@ -5,6 +5,7 @@
  * @format
  */
 
+import AppNavigator from '@/routes/AppNavigator';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -24,7 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
+import {NavigationContainer} from '@react-navigation/native';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -61,7 +62,11 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
+  return (
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  );
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
